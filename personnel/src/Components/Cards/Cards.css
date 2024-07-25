@@ -1,0 +1,138 @@
+/* Cards.css */
+
+/* grid c1 */
+.grid-c1 {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+}
+
+.grid-c-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.grid-c-line {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+}
+
+.Nom {
+  font-weight: bold; /* Gras */
+  font-style: italic; /* Italique */
+  color: #a3a6a8; /* Changez la couleur si nécessaire */
+  margin-left: 5px; /* Espace entre "Bonjour" et le nom */
+}
+
+.icon {
+  margin-right: 10px;
+  color: #007BFF; /* Couleur des icônes */
+  font-size: 20px;
+}
+
+.grid-c1-content {
+  background: linear-gradient(
+      114.07deg,
+      rgba(66, 59, 55, 0.6) 3.49%,
+      rgba(66, 59, 55, 0) 34.7%
+    ),
+    linear-gradient(138.58deg, rgba(59, 43, 30, 0.37) 43.56%, #fea767 112.68%);
+  flex: 1;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.grid-c1-content .lg-value {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: #c7c4c6;
+}
+
+.grid-c1-content .expiry-text {
+  margin-bottom: 6px;
+}
+
+.grid-c1-content .card-wrapper {
+  display: flex;
+}
+
+.grid-c1-content .card-pin-hidden {
+  font-size: 32px;
+  margin-right: 8px;
+}
+
+.grid-c1-content span {
+  color: #8a8587;
+}
+
+.grid-c1 .card-logo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-c1 .card-logo {
+  display: flex;
+}
+
+.grid-c1 .logo-shape1,
+.grid-c1 .logo-shape2 {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+}
+
+.grid-c1 .logo-shape1 {
+  background-color: var(--clr-scarlet-v1);
+  margin-right: -15px;
+  z-index: 0;
+}
+
+.grid-c1 .logo-shape2 {
+  background-color: var(--clr-yellow);
+}
+
+@media screen and (max-width: 768px) {
+  .grid-c1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+
+
+.welcome-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.welcome-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.slogan {
+  font-size: 18px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.quote {
+  font-size: 18px;
+  color: #777;
+  font-style: italic;
+  margin-top: 15px;
+}

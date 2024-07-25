@@ -1,0 +1,44 @@
+
+.dashboardPers-content {
+  flex: 1; /* Utilise tout l'espace restant */
+  background-color: #fff; /* Couleur de fond pour le contenu principal */
+  padding: 20px; /* Ajoute un espacement autour du contenu */
+  overflow-y: auto; /* Permet de scroller si le contenu est trop grand */
+  height: 100vh;
+}
+
+.dashboardPers-container {
+  display: flex;
+  height: 100vh;
+}
+
+.dashboardPers-sidebar {
+  flex: 1;
+  height: 100vh;
+  width: 250px; /* Largeur fixe pour la sidebar */
+  background-color: #333; /* Couleur de fond pour la sidebar */
+  color: #fff; /* Couleur du texte pour la sidebar */
+  height: 100vh;
+}
+
+.dashboardPers-content {
+  flex: 4;
+  padding: 20px;
+}
+
+.welcome-message {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.welcome-message h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.welcome-message p {
+  margin: 5px 0;
+}
+
