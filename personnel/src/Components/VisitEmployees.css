@@ -1,14 +1,43 @@
-/* VisitEmployees.css */
+/* Global styles for full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%;
+}
+
 .visit-employees-container {
-    padding: 20px;
-    background-color: #f9f9f9;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.submit-button {
+    margin-bottom: 20px; /* Space below the button */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #5b9dd3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
 }
 
 .visit-employees-container h2 {
     margin-bottom: 20px;
     color: #333;
+    text-align: center; /* Center the title */
 }
 
 table {
@@ -16,18 +45,15 @@ table {
     border-collapse: collapse;
 }
 
-thead {
-    background-color: #f1f1f1;
-}
-
 th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+  border: 1px solid #5b9dd3;
+  padding: 8px;
+  text-align: left;
+
 }
 
 th {
-    background-color: #f1f1f1;
+    background-color: #5b9dd3;
     font-weight: bold;
 }
 
@@ -37,4 +63,52 @@ tr.present {
 
 tr.absent {
     color: red; /* Employees who did not attend */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.pagination-item {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-item:hover {
+    background-color: #ddd;
+}
+
+.pagination-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination-item.disabled {
+    color: #ddd;
+    cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.search-filters {
+    display: flex;
+    gap: 10px; /* Space between fields */
+    margin-bottom: 20px; /* Space below search fields */
+}
+
+.search-filters input,
+.search-filters select {
+    padding: 10px;
+    border: 1px solid #5b9dd3;
+    margin-right: 10px;
+    flex: 1;
 }

@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const VisitSchema = new mongoose.Schema({
     visitDate: { type: Date, required: true },
-    description: { type: String, required: true },
+    description: { type: String, required: false }
 
 });
 

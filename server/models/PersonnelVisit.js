@@ -1,15 +1,15 @@
-import mongoose from "mongoose";
+// models/PersonnelVisit.js
+import mongoose from 'mongoose';
 
 const PersonnelVisitSchema = new mongoose.Schema({
-    matricule: { type: Number, required: true},
-    nom: { type: String, required: true },
-    service: { type: String, required: true },
-    dateNaissance: { type: Date, required: true },
-    genre: { type: String, required: true },
-    dateVisite: { type: Date, required: false }, 
-    status: { type: String, required: true } 
-});
+    MATRIC: { type: Number, required: true },  // Changer de String à Number
+    NOMPRE: { type: String, required: true },
+    DEPDES: { type: String, required: true },
+    FHF: { type: String, required: true },
+    DateVisite: { type: [Date], required: true },
+    Status: { type: String, required: true }
+}, { collection: 'personnelvisits' });
 
-const PersonnelVisitModel = mongoose.model("PersonnelVisit", PersonnelVisitSchema);
+const PersonnelVisit = mongoose.model('PersonnelVisit', PersonnelVisitSchema);
 
-export { PersonnelVisitModel as PersonnelVisit };
+export { PersonnelVisit };

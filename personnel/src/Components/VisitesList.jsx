@@ -1,8 +1,8 @@
-// components/VisitesList.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './VisitesList.css';
+import VisitEmployees from './VisitEmployees';
 
 const VisitesList = () => {
     const [visits, setVisits] = useState([]);
@@ -26,11 +26,21 @@ const VisitesList = () => {
     };
 
     const handleViewEmployees = (visitId) => {
-        navigate(`/visits/${visitId}/employees`);
+        axios.put(`http://localhost:3000/api/visits/${visitId}/employees/update`)
+            .then(response => {
+                const visitDate = response.data.visitDate;
+                navigate(`/visits/${visitId}/employees`, { state: { visitDate } });
+            })
+            .catch(error => console.error('Error updating visit date for employees:', error));
     };
 
     const handleAddVisit = () => {
         navigate('/visites');
+    };
+
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleDateString('en-GB', options).split('/').reverse().join('/');
     };
 
     return (
@@ -42,7 +52,7 @@ const VisitesList = () => {
                 onChange={e => setSearchDate(e.target.value)}
             />
             <button onClick={handleSearch}>Rechercher</button>
-            <button onClick= {handleAddVisit}>Ajouter une Visite </button>
+            <button onClick={handleAddVisit}>Ajouter une Visite</button>
             <table>
                 <thead>
                     <tr>
@@ -54,7 +64,7 @@ const VisitesList = () => {
                 <tbody>
                     {visits.map(visit => (
                         <tr key={visit._id}>
-                            <td>{visit.visitDate}</td>
+                            <td>{formatDate(visit.visitDate)}</td>
                             <td>{visit.description}</td>
                             <td>
                                 <button onClick={() => handleViewEmployees(visit._id)}>Voir Liste Employés</button>

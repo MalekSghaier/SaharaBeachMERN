@@ -5,10 +5,11 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 dotenv.config();
 import { UserRouter } from './routes/user.js';
-import { VisitRouter } from './routes/visits.js';  // Importation de VisitRouter
-
+import { VisitRouter } from './routes/visits.js';
+import { PersonnelVisitRouter } from './routes/personnelVisits.js';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors({
@@ -17,8 +18,8 @@ app.use(cors({
 }));
 app.use(cookieParser());
 app.use('/auth', UserRouter);
-app.use('/api/visits', VisitRouter);  // Utilisation de VisitRouter
-app.use('/api/personnels', UserRouter);  // Utilisation de PersonnelRouter
+app.use('/api/visits', VisitRouter);
+app.use('/api/personnelVisits', PersonnelVisitRouter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/SaharaBeach')
     .then(() => {
@@ -28,6 +29,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/SaharaBeach')
         console.error("Error connecting to MongoDB", err);
     });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

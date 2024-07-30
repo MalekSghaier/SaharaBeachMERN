@@ -1,39 +1,51 @@
-/* VisitesList.css */
-.visites-list-container {
+/* Global styles for full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+}
+
+.visites-list-container {
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto; /* Center the container */
+    flex: 1; /* Take the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .visites-list-container h2 {
-    text-align: center;
     margin-bottom: 20px;
+    color: #333;
+    text-align: center; /* Center the title */
 }
 
 .visites-list-container input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+    width: 150px; /* Adjust width */
+    padding: 5px; /* Adjust padding */
+    margin: 10px 5px; /* Adjust margin */
+    border: 1px solid #5b9dd3;
     border-radius: 4px;
 }
 
 .visites-list-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5bc0de;
+    width: auto; /* Adjust width */
+    padding: 5px 10px; /* Adjust padding */
+    background-color: #5b9dd3; /* Use the same color as table headers */
     color: white;
     font-weight: 500;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px; /* Adjust font size */
     transition: background-color 0.3s;
-    margin-bottom: 20px;
+    margin: 5px; /* Adjust margin */
 }
 
 .visites-list-container button:hover {
@@ -41,18 +53,76 @@
 }
 
 .visites-list-container table {
-    width: 100%;
+    width: 40%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 .visites-list-container table th,
 .visites-list-container table td {
-    border: 1px solid #ccc;
     padding: 10px;
+    border: 1px solid #ddd;
     text-align: left;
 }
 
 .visites-list-container table th {
-    background-color: #f2f2f2;
+    background-color: #5b9dd3;
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.pagination-item {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-item:hover {
+    background-color: #ddd;
+}
+
+.pagination-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination-item.disabled {
+    color: #ddd;
+    cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.visites-list-container .small-button {
+    width: auto; /* Adjust width */
+    padding: 5px 10px; /* Adjust padding */
+    background-color: #5b9dd3; /* Use the same color as table headers */
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Adjust font size */
+    transition: background-color 0.3s;
+    margin: 5px; /* Adjust margin */
+}
+
+.visites-list-container .small-button:hover {
+    background-color: #0056b3;
+}
+
+.visites-list-container .table-cell-center {
+    text-align: center;
+    vertical-align: middle;
 }

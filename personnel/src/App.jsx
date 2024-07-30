@@ -23,11 +23,11 @@ function App() {
           <Route path="/dashboardHyg" element={<DashboardHyg />} />
           <Route path="/dashboardPers" element={<DashboardPers />} />
           <Route path="/employeeList" element={<EmployeeList />} />
-          <Route path="/add-employee" element={<AddEmployee/>} />
-          <Route path="/visites" element={<Visites/>} />
-          <Route path="/copro" element={<Copro/>} />
-          <Route path="/visits-list" element={<VisitesList/>} />
-          <Route path="/visits/:visitId/employees" element={<VisitEmployees/>} /> {/* Add this line */}
+          <Route path="/add-employee" element={<AddEmployee />} />
+          <Route path="/visites" element={<Visites />} />
+          <Route path="/copro" element={<Copro />} />
+          <Route path="/visits-list" element={<VisitesList />} />
+          <Route path="/visits/:visitId/employees" element={<VisitEmployees />} /> {/* Add this line */}
         </Routes>
       </BrowserRouter>
     </>
