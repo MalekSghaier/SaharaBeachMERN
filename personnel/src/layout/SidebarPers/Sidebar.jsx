@@ -65,7 +65,7 @@ const Sidebar = () => {
                     <a href="/visits-list" className="sub-link">Visites systématiques</a>
                   </li>
                   <li className="sub-item">
-                    <a href="/copro" className="sub-link">Examens copros</a>
+                    <a href="/copro-list" className="sub-link">Examens copros</a>
                   </li>
                 </ul>
               )}

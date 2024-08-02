@@ -1,4 +1,3 @@
-// models/PersonnelVisit.js
 import mongoose from 'mongoose';
 
 const PersonnelVisitSchema = new mongoose.Schema({

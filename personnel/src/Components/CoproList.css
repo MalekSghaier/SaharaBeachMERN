@@ -1,0 +1,71 @@
+/* Global styles for full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%;
+}
+
+.copro-list-container {
+    border-radius: 5px;
+    max-width: 80%;
+    margin: 0 auto; /* Center the container */
+    flex: 1; /* Take the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.copro-list-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center; /* Center the title */
+}
+
+.copro-list-container input {
+    width: 150px; /* Adjust width */
+    padding: 5px; /* Adjust padding */
+    margin: 10px 5px; /* Adjust margin */
+    border: 1px solid #5b9dd3;
+    border-radius: 4px;
+}
+
+.copro-list-container button {
+    width: auto; /* Adjust width */
+    padding: 5px 10px; /* Adjust padding */
+    background-color: #5b9dd3; /* Use the same color as table headers */
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Adjust font size */
+    transition: background-color 0.3s;
+    margin: 5px; /* Adjust margin */
+}
+
+.copro-list-container button:hover {
+    background-color: #0056b3;
+}
+
+.copro-list-container table {
+    width: 40%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.copro-list-container table th,
+.copro-list-container table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.copro-list-container table th {
+    background-color: #5b9dd3;
+    font-weight: bold;
+}

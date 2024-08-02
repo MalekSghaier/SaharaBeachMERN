@@ -19,50 +19,63 @@ html, body {
     padding: 20px;
 }
 
-.submit-button {
-    margin-bottom: 20px; /* Space below the button */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #5b9dd3;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #0056b3;
-}
-
-.visit-employees-container h2 {
+h1 {
     margin-bottom: 20px;
     color: #333;
-    text-align: center; /* Center the title */
+    text-align: center;
+}
+
+.search-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between fields */
+    margin-bottom: 20px; /* Space below search fields */
+    justify-content: center; /* Center the filters horizontally */
+}
+
+.search-filters input[type="date"] {
+    padding: 10px;
+    border: 1px solid #5b9dd3;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 200px; /* Fixed width for consistency */
+}
+
+.search-filters button {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #5b9dd3;;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    width: 200px;
+}
+
+.search-filters button:hover {
+    background-color: #0056b3;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
 }
 
 th, td {
-  border: 1px solid #5b9dd3;
-  padding: 8px;
-  text-align: left;
-
+    padding: 10px;
+    text-align: left;
 }
 
 th {
     background-color: #5b9dd3;
-    font-weight: bold;
-}
-
-tr.present {
-    color: black; /* Employees who attended */
-}
-
-tr.absent {
-    color: red; /* Employees who did not attend */
+    color: white;
 }
 
 .pagination {
@@ -99,16 +112,7 @@ tr.absent {
     padding: 5px 10px;
 }
 
-.search-filters {
-    display: flex;
-    gap: 10px; /* Space between fields */
-    margin-bottom: 20px; /* Space below search fields */
-}
-
-.search-filters input,
-.search-filters select {
-    padding: 10px;
-    border: 1px solid #5b9dd3;
-    margin-right: 10px;
-    flex: 1;
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

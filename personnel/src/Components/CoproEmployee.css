@@ -1,0 +1,51 @@
+/* components/CoproEmployee.css */
+.copro-employee-container {
+    padding: 20px;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-container input {
+    padding: 8px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination-item {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.pagination-item.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination-ellipsis {
+    padding: 5px 10px;
+    margin: 0 2px;
+}

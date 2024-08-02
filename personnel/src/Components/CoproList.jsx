@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './VisitesList.css';
-import VisitEmployees from './VisitEmployees';
+import CoproEmployee from './CoproEmployee';
 
-const VisitesList = () => {
+const CoproList = () => {
     const [visits, setVisits] = useState([]);
     const [searchDate, setSearchDate] = useState('');
     const navigate = useNavigate();
@@ -14,28 +14,28 @@ const VisitesList = () => {
     }, []);
 
     const fetchVisits = () => {
-        axios.get('http://localhost:3000/api/visits')
+        axios.get('http://localhost:3000/api/testCopro')
             .then(response => setVisits(response.data))
             .catch(error => console.error('Error fetching visits:', error));
     };
 
     const handleSearch = () => {
-        axios.get(`http://localhost:3000/api/visits/search?date=${searchDate}`)
+        axios.get(`http://localhost:3000/api/testCopro/search?date=${searchDate}`)
             .then(response => setVisits(response.data))
             .catch(error => console.error('Error searching visits:', error));
     };
 
-    const handleViewEmployees = (visitId) => {
-        axios.put(`http://localhost:3000/api/visits/${visitId}/employees/update`)
+    const handleViewEmployees = (testId) => {
+        axios.put(`http://localhost:3000/api/testCopro/${testId}/employees/update`)
             .then(response => {
-                const visitDate = response.data.visitDate;
-                navigate(`/visits/${visitId}/employees`, { state: { visitDate } });
+                const testDate = response.data.testDate;
+                navigate(`/testCopro/${testId}/employees`, { state: { testDate } });
             })
             .catch(error => console.error('Error updating visit date for employees:', error));
     };
 
     const handleAddVisit = () => {
-        navigate('/visites');
+        navigate('/testCopro');
     };
 
     const formatDate = (dateString) => {
@@ -62,12 +62,12 @@ const VisitesList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {visits.map(visit => (
-                        <tr key={visit._id}>
-                            <td>{formatDate(visit.visitDate)}</td>
-                            <td>{visit.description}</td>
+                    {visits.map(TestCopro => (
+                        <tr key={TestCopro._id}>
+                            <td>{formatDate(TestCopro.testDate)}</td>
+                            <td>{TestCopro.description}</td>
                             <td>
-                                <button onClick={() => handleViewEmployees(visit._id)}>Voir Liste Employés</button>
+                                <button onClick={() => handleViewEmployees(TestCopro._id)}>Voir Liste Employés</button>
                             </td>
                         </tr>
                     ))}
@@ -77,4 +77,4 @@ const VisitesList = () => {
     );
 };
 
-export default VisitesList;
+export default CoproList;

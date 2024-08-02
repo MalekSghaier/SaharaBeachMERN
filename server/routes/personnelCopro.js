@@ -1,12 +1,10 @@
 import express from 'express';
-import { PersonnelVisit } from '../models/PersonnelVisit.js';
-import { Visit } from '../models/Visit.js';
-
+import { PersonnelCopro } from '../models/PersonnelCopro.js';
 const router = express.Router();
 
 router.get('/all', async (req, res) => {
     try {
-        const employees = await PersonnelVisit.find({});
+        const employees = await PersonnelCopro.find({});
         res.json(employees);
     } catch (err) {
         res.status(500).json({ message: 'Erreur serveur lors de la récupération des employés' });
@@ -14,18 +12,18 @@ router.get('/all', async (req, res) => {
 });
 
 router.get('/search', async (req, res) => {
-    const { matricule, visitDate } = req.query;
+    const { matricule, testDate } = req.query;
     const query = {};
 
     if (matricule) {
         query.MATRIC = parseInt(matricule, 10);  // Convertir le paramètre matricule en Number
     }
-    if (visitDate) {
-        query.DateVisite = { $elemMatch: { $eq: new Date(visitDate) } };
+    if (testDate) {
+        query.DateVisite = { $elemMatch: { $eq: new Date(testDate) } };
     }
 
     try {
-        const employees = await PersonnelVisit.find(query);
+        const employees = await PersonnelCopro.find(query);
         res.json(employees);
     } catch (err) {
         res.status(500).json({ message: 'Erreur serveur lors de la recherche des employés' });
@@ -36,15 +34,15 @@ router.get('/search', async (req, res) => {
 // Route to update employee status
 router.put('/updateStatus/:id', async (req, res) => {
     try {
-        const { status, visitDate } = req.body;
-        const employee = await PersonnelVisit.findById(req.params.id);
+        const { status, testDate } = req.body;
+        const employee = await PersonnelCopro.findById(req.params.id);
 
         if (!employee) {
             return res.status(404).json({ message: 'Employé non trouvé' });
         }
 
-        if (status === 'P' && visitDate) {
-            const date = new Date(visitDate);
+        if (status === 'P' && testDate) {
+            const date = new Date(testDate);
             const dateExists = employee.DateVisite.some(d => d.getTime() === date.getTime());
 
             if (!dateExists) {
@@ -67,14 +65,14 @@ router.put('/updateStatus/:id', async (req, res) => {
 // Route to update employee visit date
 router.put('/updateDateVisite/:id', async (req, res) => {
     try {
-        const { dateVisite } = req.body;
-        const employee = await PersonnelVisit.findById(req.params.id);
+        const { testVisite } = req.body;
+        const employee = await PersonnelCopro.findById(req.params.id);
 
         if (!employee) {
             return res.status(404).json({ message: 'Employé non trouvé' });
         }
 
-        const date = new Date(dateVisite);
+        const date = new Date(testVisite);
         const dateExists = employee.DateVisite.some(d => d.getTime() === date.getTime());
 
         if (!dateExists) {
@@ -116,8 +114,8 @@ router.get('/searchByDate', async (req, res) => {
             return res.status(400).send({ message: 'Date de visite manquante' });
         }
 
-        const visitDate = new Date(date);
-        const employees = await PersonnelVisit.find({ DateVisite: visitDate });
+        const testDate = new Date(date);
+        const employees = await PersonnelCopro.find({ DateVisite: testDate });
 
         res.status(200).send(employees);
     } catch (error) {
@@ -135,8 +133,8 @@ router.get('/searchWithoutDate', async (req, res) => {
             return res.status(400).send({ message: 'Date de visite manquante' });
         }
 
-        const visitDate = new Date(date);
-        const employees = await PersonnelVisit.find({ DateVisite: { $ne: visitDate } });
+        const testDate = new Date(date);
+        const employees = await PersonnelCopro.find({ DateVisite: { $ne: testDate } });
 
         res.status(200).send(employees);
     } catch (error) {
@@ -145,4 +143,4 @@ router.get('/searchWithoutDate', async (req, res) => {
     }
 });
 
-export { router as PersonnelVisitRouter };
+export { router as PersonnelCoproRouter };

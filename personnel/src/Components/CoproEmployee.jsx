@@ -19,23 +19,23 @@ function VisitEmployees() {
     const [isModified, setIsModified] = useState(false);
     const employeesPerPage = 5;
     const location = useLocation();
-    const { visitDate } = location.state;
+    const { testDate } = location.state;
     const [searchWithoutDate, setSearchWithoutDate] = useState(false);
 
     useEffect(() => {
         fetchEmployees();
-    }, [visitDate]);
+    }, [testDate]);
 
     const fetchEmployees = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/personnelVisits/all', {
+            const response = await axios.get('http://localhost:3000/api/personnelCopro/all', {
                 headers: {
                     'Accept': 'application/json'
                 }
             });
             if (Array.isArray(response.data)) {
                 const employeesData = response.data.map(employee => {
-                    const isPresent = employee.DateVisite?.includes(visitDate);
+                    const isPresent = employee.DateVisite?.includes(testDate);
                     return {
                         ...employee,
                         Status: isPresent ? 'P' : 'A'
@@ -56,20 +56,20 @@ function VisitEmployees() {
             let response;
             if (dateSearch) {
                 if (searchWithoutDate) {
-                    response = await axios.get('http://localhost:3000/api/personnelVisits/searchWithoutDate', {
+                    response = await axios.get('http://localhost:3000/api/personnelCopro/searchWithoutDate', {
                         params: {
                             date: dateSearch
                         }
                     });
                 } else {
-                    response = await axios.get('http://localhost:3000/api/personnelVisits/searchByDate', {
+                    response = await axios.get('http://localhost:3000/api/personnelCopro/searchByDate', {
                         params: {
                             date: dateSearch
                         }
                     });
                 }
             } else {
-                response = await axios.get('http://localhost:3000/api/personnelVisits/search', {
+                response = await axios.get('http://localhost:3000/api/personnelCopro/search', {
                     params: {
                         matricule: matriculeSearch ? parseInt(matriculeSearch, 10) : undefined
                     }
@@ -105,15 +105,15 @@ function VisitEmployees() {
 
         try {
             if (newStatus === 'P') {
-                await axios.put(`http://localhost:3000/api/personnelVisits/updateDateVisite/${id}`, {
-                    dateVisite: visitDate
+                await axios.put(`http://localhost:3000/api/personnelCopro/updateDateVisite/${id}`, {
+                    testVisite: testDate
                 });
                 const updatedEmployeesWithDate = updatedEmployees.map(emp =>
-                    emp._id === id ? { ...emp, DateVisite: emp.DateVisite.includes(visitDate) ? emp.DateVisite : [...emp.DateVisite, visitDate], Status: 'A' } : emp
+                    emp._id === id ? { ...emp, DateVisite: emp.DateVisite.includes(testDate) ? emp.DateVisite : [...emp.DateVisite, testDate], Status: 'A' } : emp
                 );
                 setFilteredEmployees(updatedEmployeesWithDate);
             } else if (newStatus === 'A') {
-                await axios.put(`http://localhost:3000/api/personnelVisits/removeDateVisite/${id}`);
+                await axios.put(`http://localhost:3000/api/personnelCopro/removeDateVisite/${id}`);
             }
         } catch (error) {
             console.error('Error updating visit date:', error);
@@ -123,7 +123,7 @@ function VisitEmployees() {
 
     const handleSubmit = async () => {
         const updates = filteredEmployees.map(emp =>
-            axios.put(`http://localhost:3000/api/personnelVisits/updateStatus/${emp._id}`, { status: emp.Status })
+            axios.put(`http://localhost:3000/api/personnelCopro/updateStatus/${emp._id}`, { status: emp.Status })
         );
 
         try {
@@ -195,7 +195,7 @@ function VisitEmployees() {
 
     return (
         <div className="visit-employees-container">
-            <h1>Gestion des visites médicales</h1>
+            <h1>Gestion des tests Copro</h1>
             <div className="search-filters">
                 <input
                     type="text"

@@ -4,9 +4,15 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 dotenv.config();
+
 import { UserRouter } from './routes/user.js';
 import { VisitRouter } from './routes/visits.js';
 import { PersonnelVisitRouter } from './routes/personnelVisits.js';
+import { TestCoproRouter } from './routes/testCopro.js';
+import { PersonnelCoproRouter } from './routes/personnelCopro.js';
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,10 +23,12 @@ app.use(cors({
     credentials: true
 }));
 app.use(cookieParser());
+
 app.use('/auth', UserRouter);
 app.use('/api/visits', VisitRouter);
 app.use('/api/personnelVisits', PersonnelVisitRouter);
-
+app.use('/api/testCopro', TestCoproRouter);
+app.use('/api/personnelCopro', PersonnelCoproRouter);
 mongoose.connect('mongodb://127.0.0.1:27017/SaharaBeach')
     .then(() => {
         console.log("Connected to MongoDB");

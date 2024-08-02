@@ -1,15 +1,12 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import PersonnelVisit from './models/PersonnelVisit.js';
+import {PersonnelCopro} from './models/PersonnelCopro.js';
 
 dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGO_URI);
     console.log('MongoDB connected');
   } catch (err) {
     console.error(err.message);
@@ -25,22 +22,22 @@ const parseDateString = (dateString) => {
 
 const updateDateVisiteField = async () => {
   try {
-    const visits = await PersonnelVisit.find({});
-    for (const visit of visits) {
-      if (!Array.isArray(visit.DateVisite)) {
-        if (typeof visit.DateVisite === 'string') {
+    const Copros = await PersonnelCopro.find({});
+    for (const copro of Copros) {
+      if (!Array.isArray(copro.DateVisite)) {
+        if (typeof copro.DateVisite === 'string') {
           // Convert string date to array of Date objects
-          visit.DateVisite = [parseDateString(visit.DateVisite)];
+          copro.DateVisite = [parseDateString(copro.DateVisite)];
         } else {
-          visit.DateVisite = [];
+          copro.DateVisite = [];
         }
-        await visit.save();
+        await copro.save();
       } else {
         // Convert all string dates in the array to Date objects
-        visit.DateVisite = visit.DateVisite.map(date => 
+        copro.DateVisite = copro.DateVisite.map(date =>
           typeof date === 'string' ? parseDateString(date) : date
         );
-        await visit.save();
+        await copro.save();
       }
     }
     console.log('Migration completed');
