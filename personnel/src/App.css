@@ -5,6 +5,50 @@
   margin: 0;
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center;
+  flex-direction: column;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - var(--sidebar-width));
+  height: 100vh;
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100vh;
+  width: calc(100% - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+}
+.layout {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.app {
+  display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    width: 100%;
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centrer l'application */
+}
 
 :root {
   --clr-primary: #29221d;
@@ -23,11 +67,15 @@
   --clr-peach: #ffc397;
   --font-family-bai: "Bai Jamjuree", sans-serif;
   --transition-default: all 300ms ease-in-out;
+  --sidebar-width: 300px;
+  
 }
 
-body {
-  font-family: var(--font-family-bai);
+#root {
+  display: flex;
+  flex: 1;
 }
+
 
 ul {
   list-style-type: none;
@@ -71,7 +119,7 @@ button {
 
 .app {
   display: flex;
-  min-height: 100vh;
+  flex: 1;
 }
 
 /* commons */
@@ -104,6 +152,14 @@ button {
   background-color: #d8d8d8e7;
 }
 
+.dashboardPers-sidebar {
+  flex: 0 0 250px; /* Sidebar width */
+  background-color: #343a40; /* Sidebar background color */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Full height of the container */
+}
 @media screen and (max-width: 1400px) {
   .grid-common {
     padding: 16px;
@@ -119,4 +175,5 @@ button {
   align-items: center;
   height: 100vh;
 }
+
 

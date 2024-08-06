@@ -6,8 +6,7 @@ export const navigationLinks = [
     { id: 1, title: 'Home', image: iconsImgs.home , url:'/dashboardPers'},
     { id: 2, title: 'Liste des Employés', image: iconsImgs.check , url: '/employeeList'},
     { id: 3, title: 'Dossier medical', image: iconsImgs.budget , url: ''},
-    { id: 4, title: 'Compte', image: iconsImgs.user , url: ''},
-    { id: 5, title: 'Paramètre', image: iconsImgs.gears , url: ''}
+    { id: 4, title: 'Déconnexion', image: iconsImgs.user , url: '/logout'},
 ];
 
 export const transactions = [

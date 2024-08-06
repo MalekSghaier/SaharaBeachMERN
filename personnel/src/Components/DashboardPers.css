@@ -1,44 +1,13 @@
-
-.dashboardPers-content {
-  flex: 1; /* Utilise tout l'espace restant */
-  background-color: #fff; /* Couleur de fond pour le contenu principal */
-  padding: 20px; /* Ajoute un espacement autour du contenu */
-  overflow-y: auto; /* Permet de scroller si le contenu est trop grand */
-  height: 100vh;
+/* DashboardPers.css */
+.dashboard-container {
+  background: url('personnel.png') no-repeat center center;
+  background-size: cover; /* Assure que l'image couvre tout le conteneur */
+  height: 100vh; /* Hauteur de la vue pour couvrir toute la hauteur de l'écran */
+  width: 100vw; /* Largeur de la vue pour couvrir toute la largeur de l'écran */
+  overflow: hidden; /* Empêche le défilement si l'image est plus grande que la vue */
+  position: relative; /* Pour des ajustements futurs si nécessaire */
+  width: 100%;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
 }
-
-.dashboardPers-container {
-  display: flex;
-  height: 100vh;
-}
-
-.dashboardPers-sidebar {
-  flex: 1;
-  height: 100vh;
-  width: 250px; /* Largeur fixe pour la sidebar */
-  background-color: #333; /* Couleur de fond pour la sidebar */
-  color: #fff; /* Couleur du texte pour la sidebar */
-  height: 100vh;
-}
-
-.dashboardPers-content {
-  flex: 4;
-  padding: 20px;
-}
-
-.welcome-message {
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.welcome-message h2 {
-  margin-bottom: 10px;
-  font-size: 24px;
-}
-
-.welcome-message p {
-  margin: 5px 0;
-}
-

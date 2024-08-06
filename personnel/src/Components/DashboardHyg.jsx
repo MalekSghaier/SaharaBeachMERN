@@ -1,11 +1,10 @@
 
 import Sidebar from '../layout/Sidebar/Sidebar';
-import Content from '../layout/Content/Content';
+
 import './DashboardHyg.css';
 import { useEffect } from 'react';
 import Axios from "axios";
 import React, { useState } from "react";
-import Cards from "./Cards/Cards";
 
 const DashboardHyg = () => {
   const [user, setUser] = useState(null);
@@ -34,12 +33,26 @@ const DashboardHyg = () => {
   }
 
   return (
-    <div className='dashboardHyg-container'>
-      <Sidebar className='dashboardHyg-sidebar' />
-      <div className='dashboardHyg-content'>
-        <Content />
+    <div className="grid-one-item grid-common grid-c1">
+    <div className="grid-c-title">
+      <div className="grid-c-line">
+        <i className="fas fa-user-circle icon"></i>
+        Bonjour <span className="Nom">{user.fullName}</span>,
+      </div>
+      <div className="grid-c-line">
+        <i className="fas fa-home icon"></i>
+        Bienvenue sur votre tableau de bord personnel !
+      </div>
+      <div className="grid-c-line">
+        <i className="fas fa-tools icon"></i>
+        Votre outil pour une gestion efficace et simplifiée.
+      </div>
+      <div className="grid-c-line">
+        <i className="fas fa-key icon"></i>
+        L'organisation est la clé du succès.
       </div>
     </div>
+  </div>
   );
 }
 

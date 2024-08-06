@@ -1,8 +1,6 @@
 // DashboardPers.jsx
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import Sidebar from '../layout/SidebarPers/Sidebar';
-import Content from '../layout/ContentPers/Content';
 import './DashboardPers.css';
 
 const DashboardPers = () => {
@@ -18,14 +16,20 @@ const DashboardPers = () => {
       });
   }, []);
 
+
+
   return (
-    <div className='dashboardPers-container'>
-      <Sidebar className='dashboardPers-sidebar' />
-      <div className='dashboardPers-content'>
-        <Content />
-      </div>
+    <div className="dashboard-container">
+      {/* L'image d'arrière-plan est gérée par le CSS */}
     </div>
   );
+
+
+
+
 }
 
 export default DashboardPers;
+
+
+

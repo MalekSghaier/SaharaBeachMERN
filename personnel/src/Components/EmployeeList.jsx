@@ -71,8 +71,8 @@ const EmployeeList = () => {
   };
 
   return (
-    <div className="dashboard-container">
-      <Sidebar selected="Liste des Employés" className='dashboardPers-sidebar' />
+    <div className="dashboard-container2">
+      
       <div className="employee-list-container">
         <div className="employee-list">
           <h1>Liste des Employés</h1>

@@ -45,14 +45,14 @@ const CoproList = () => {
 
     return (
         <div className="visites-list-container">
-            <h2>Liste des Visites</h2>
+            <h2>Liste des Tests Copro</h2>
             <input
                 type="date"
                 value={searchDate}
                 onChange={e => setSearchDate(e.target.value)}
             />
             <button onClick={handleSearch}>Rechercher</button>
-            <button onClick={handleAddVisit}>Ajouter une Visite</button>
+            <button onClick={handleAddVisit}>Ajouter un Test Copro</button>
             <table>
                 <thead>
                     <tr>
