@@ -1,11 +1,11 @@
-import "./Sidebar.css";
+import "./SidebarPers.css";
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { personsImgs } from '../../utils/images';
 import { navigationLinks } from '../../dataPers/data';
 import { SidebarContext } from "../../context/sidebarContext";
 
-const Sidebar = () => {
+const SidebarPers = () => {
   const [activeLinkIdx, setActiveLinkIdx] = useState(1);
   const [sidebarClass, setSidebarClass] = useState("");
   const { isSidebarOpen } = useContext(SidebarContext);
@@ -77,4 +77,4 @@ const Sidebar = () => {
   );
 }
 
-export default Sidebar;
+export default SidebarPers;

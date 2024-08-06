@@ -1,17 +1,13 @@
-.dashboardHyg-container {
-  display: flex;
-  height: 100vh; /* Assurez-vous que le conteneur prend toute la hauteur de la fenêtre */
-}
 
-.dashboardHyg-sidebar {
-  width: 250px; /* Largeur fixe pour la sidebar */
-  background-color: #333; /* Couleur de fond pour la sidebar */
-  color: #fff; /* Couleur du texte pour la sidebar */
-}
-
-.dashboardHyg-content {
-  flex: 1; /* Utilise tout l'espace restant */
-  background-color: #f5f5f5; /* Couleur de fond pour le contenu principal */
-  padding: 20px; /* Ajoute un espacement autour du contenu */
-  overflow-y: auto; /* Permet de scroller si le contenu est trop grand */
+.dashboard-container {
+  background: url('personnel.png') no-repeat center center;
+  background-size: cover; /* Assure que l'image couvre tout le conteneur */
+  height: 100vh; /* Hauteur de la vue pour couvrir toute la hauteur de l'écran */
+  width: 100vw; /* Largeur de la vue pour couvrir toute la largeur de l'écran */
+  overflow: hidden; /* Empêche le défilement si l'image est plus grande que la vue */
+  position: relative; /* Pour des ajustements futurs si nécessaire */
+  width: 100%;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
 }

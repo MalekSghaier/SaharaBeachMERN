@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
+import { UserContext } from '../context/UserContext';
 import "./Login.css";
 
 const Login = () => {
@@ -10,6 +11,7 @@ const Login = () => {
     const [toastType, setToastType] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext);
     Axios.defaults.withCredentials = true;
 
     const handleSubmit = (e) => {
@@ -19,16 +21,17 @@ const Login = () => {
             password,
         }).then(response => {
             if (response.data.status) {
-                const service = response.data.user.service;
+                const user = response.data.user;
+                setUser(user); // Mise à jour du contexte utilisateur
                 showToast("Connexion réussie", "success");
 
                 // Show the toast for a short duration, then show the loading spinner and navigate
                 setTimeout(() => {
                     setLoading(true);
                     setTimeout(() => {
-                        if (service === "Equipe hygiène") {
+                        if (user.service === "Equipe hygiène") {
                             navigate('/dashboardHyg');
-                        } else if (service === "Equipe personnel") {
+                        } else if (user.service === "Equipe personnel") {
                             navigate('/dashboardPers');
                         } else {
                             navigate('/'); // Default route if service is unknown
@@ -79,7 +82,7 @@ const Login = () => {
                     </div>
                     <button type="submit" className="login-button">Se Connecter</button>
                     <div className="center">
-                        <a href="/Signup">Créer un Compte ?</a>
+                        <a href="/signup">Créer un Compte ?</a>
                     </div>
                 </form>
                 {toastMessage && (

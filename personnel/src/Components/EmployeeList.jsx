@@ -4,7 +4,7 @@ import ReactPaginate from 'react-paginate';
 import { FaPlus, FaTrash } from 'react-icons/fa'; // Importing the plus and trash icons
 import { useNavigate } from 'react-router-dom';
 import './EmployeeList.css';
-import Sidebar from '../layout/SidebarPers/Sidebar';
+import Sidebar from '../layout/SidebarPers/SidebarPers';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);

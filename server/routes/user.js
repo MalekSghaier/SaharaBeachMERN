@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
             return res.json({ status: false, message: 'Mot de passe incorrect' });
         }
 
-        const token = jwt.sign({ id: user._id }, 'your_jwt_secret');
+        const token = jwt.sign({ id: user._id, service: user.service }, 'your_jwt_secret');
         res.cookie('token', token, { httpOnly: true });
 
         res.json({
@@ -60,6 +60,7 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ status: false, message: 'Erreur serveur lors de la connexion' });
     }
 });
+
 
 // Get user info route
 router.get('/user', async (req, res) => {
