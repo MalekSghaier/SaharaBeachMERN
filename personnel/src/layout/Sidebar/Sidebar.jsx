@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import "./Sidebar.css";
 import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
@@ -49,31 +50,31 @@ const Sidebar = () => {
         <ul className="nav-list">
           {navigationLinks.map((navigationLink) => (
             <li className="nav-item" key={navigationLink.id}>
-              <a
-                href="#"
+              <Link
+                to={navigationLink.url || '#'}
                 className={`nav-link ${activeLinkIdx === navigationLink.id ? 'active' : ''}`}
                 onClick={() => handleLinkClick(navigationLink.id, navigationLink.title)}
               >
                 <img src={navigationLink.image} className="nav-link-icon" alt={navigationLink.title} />
                 <span className="nav-link-text">{navigationLink.title}</span>
-              </a>
+              </Link>
               {navigationLink.title === 'Dossier medical' && isMedicalFolderOpen && (
                 <ul className="sub-list">
                   <li className="sub-item">
-                    <a href="#" className="sub-link">Visites systématiques</a>
+                    <Link to="/visits-list" className="sub-link">Visites systématiques</Link>
                   </li>
                   <li className="sub-item">
-                    <a href="#" className="sub-link">Examens copros</a>
+                    <Link to="/copro-list" className="sub-link">Examens copros</Link>
                   </li>
                 </ul>
               )}
               {navigationLink.title === 'Audit' && isAuditFolderOpen && (
                 <ul className="sub-list">
                   <li className="sub-item">
-                    <a href="#" className="sub-link">Non Conformité</a>
+                    <Link to="#" className="sub-link">Non Conformité</Link>
                   </li>
                   <li className="sub-item">
-                    <a href="#" className="sub-link">Plan d'action</a>
+                    <Link to="#" className="sub-link">Plan d'action</Link>
                   </li>
                 </ul>
               )}

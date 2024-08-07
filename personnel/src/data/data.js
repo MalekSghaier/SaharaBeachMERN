@@ -2,12 +2,11 @@ import { iconsImgs } from "../utils/images";
 import { personsImgs } from "../utils/images";
 
 export const navigationLinks = [
-    { id: 1, title: 'Home', image: iconsImgs.home },
+    { id: 1, title: 'Home', image: iconsImgs.home , url: '/dashboardHyg' },
     { id: 2, title: 'Dossier medical', image: iconsImgs.budget },
-    { id: 4, title: 'Analyse Bactério', image: iconsImgs.wallet },
-    { id: 5, title: 'Audit', image: iconsImgs.report },
-    { id: 9, title: 'Compte', image: iconsImgs.user },
-    { id: 10, title: 'Paramètre', image: iconsImgs.gears }
+    { id: 3, title: 'Analyse Bactério', image: iconsImgs.wallet ,  url: '/AnalyseBacterio'},
+    { id: 4, title: 'Audit', image: iconsImgs.report },
+    { id: 5, title: 'Déconnexion', image: iconsImgs.user , url: '/logout'},
 ];
 
 export const transactions = [
