@@ -1,0 +1,215 @@
+/* Base container styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Prevent scroll on the body */
+}
+.analyse-bacterio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.h1 {
+    text-align: center;
+    padding : -20px;
+
+}
+
+
+.bacterio-table {
+    width: 100%;
+    margin-bottom: 20px; /* Space between the table and pagination */
+}
+
+.bacterio-table th, .bacterio-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.bold-cell {
+    font-weight: bold;
+}
+
+.subheader {
+    padding-left: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-item {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination-item.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Add scrollability while keeping the title and pagination visible */
+.analyse-bacterio-container {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.analyse-bacterio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    padding: 0px;
+    height: 80%; /* Adjust to center vertically */
+    margin: auto; /* Center container */
+    position: relative; /* For absolute positioning of title */
+}
+
+/* Center title vertically and horizontally */
+.analyse-bacterio-container h1 {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%; /* Ensure full width for centering */
+}
+
+/* Table container with horizontal scrolling */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Table styling similar to CoproEmployee */
+.bacterio-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bacterio-table th, .bacterio-table td {
+    border: 1px solid #ddd;
+    padding: 0px;
+    text-align: center;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.bacterio-table th {
+    background-color: #5b9dd3;
+    color: white;
+    padding: 15px;
+    font-size: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+
+
+.bacterio-table td {
+    max-width: 120px; /* Adjust width as needed */
+    text-overflow: ellipsis; /* Show ellipsis if text overflows */
+    overflow: hidden;
+}
+
+.bacterio-table .type-col {
+    max-width: 120px; /* Minimized width for Type d'Echantillon */
+    text-align: left; /* Align text to the left for better readability */
+}
+
+.bacterio-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.record-item {
+    border-bottom: 1px solid #ddd;
+    padding: 2px;
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+
+.search-add-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.search-button, .add-button {
+    font-size: 15px;
+    margin-right: 10px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.add-button {
+    background-color:  #5b9dd3; /* Green */
+    color: white;
+    width: 350px;
+}
+
+.search-button {
+    background-color:  #5b9dd3; /* Blue */
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bacterio-table th, .bacterio-table td {
+        font-size: 10px; /* Smaller font size for smaller screens */
+        padding: 4px; /* Reduce padding */
+    }
+
+    .bacterio-table .type-col {
+        max-width: 100px; /* Further reduce width for smaller screens */
+    }
+
+    .pagination-item {
+        padding: 4px 8px; /* Smaller padding for pagination items */
+        font-size: 10px; /* Smaller font size for pagination items */
+    }
+}
+
+@media (max-width: 480px) {
+    .analyse-bacterio-container {
+        width: 100%;
+        padding: 0 10px; /* Add some padding for small screens */
+    }
+
+    .bacterio-table th, .bacterio-table td {
+        font-size: 8px; /* Further reduce font size */
+        padding: 2px; /* Reduce padding */
+    }
+
+    .bacterio-table .type-col {
+        max-width: 80px; /* Further reduce width */
+    }
+
+    .pagination-item {
+        padding: 3px 6px; /* Further reduce padding */
+        font-size: 8px; /* Further reduce font size */
+    }
+}

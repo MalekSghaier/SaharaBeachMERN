@@ -15,7 +15,7 @@ import CoproEmployee from './Components/CoproEmployee';
 import Layout from './Components/Layout';
 import Logout from './Components/Logout'; 
 import AnalyseBacterio from './Components/AnalyseBacterio';
-import AjoutAnalyseBacterio from './Components/AjoutAnalyseBacterio';
+import BacterialAnalysisForm from './Components/BacterialAnalysisForm';
 import { UserProvider } from './context/UserContext';
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
           <Route path="/testCopro/:testId/employees" element={<Layout><CoproEmployee /></Layout>} />
           <Route path="/logout" element={<Logout />} />
           <Route path = "/AnalyseBacterio" element={<Layout>< AnalyseBacterio/> </Layout>} />
-          <Route path = "/AjoutAnalyseBacterio" element={<Layout>< AjoutAnalyseBacterio/></Layout>}/>
+          <Route path = "/AjoutAnalyseBacterio" element={<Layout>< BacterialAnalysisForm/></Layout>}/>
         </Routes>
       </BrowserRouter>
     </UserProvider>
