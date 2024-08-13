@@ -52,10 +52,10 @@ const AnalyseBacterio = () => {
                             analysis[field] && analysis[field].length > 0
                                 ? analysis[field].map((item, itemIdx) => (
                                     <div key={itemIdx} className="record-item">
-                                        {item || 'N/A'}
+                                        {item || ''}
                                     </div>
                                 ))
-                                : [<div key="N/A" className="record-item">N/A</div>]
+                                : [<div key="" className="record-item"></div>]
                         )}
                 </td>
             ));
