@@ -71,10 +71,10 @@ const Sidebar = () => {
               {navigationLink.title === 'Audit' && isAuditFolderOpen && (
                 <ul className="sub-list">
                   <li className="sub-item">
-                    <Link to="#" className="sub-link">Non Conformité</Link>
+                    <Link to="/NonConformite" className="sub-link">Non Conformité</Link>
                   </li>
                   <li className="sub-item">
-                    <Link to="#" className="sub-link">Plan d'action</Link>
+                    <Link to="/PlanAction" className="sub-link">Plan d'action</Link>
                   </li>
                 </ul>
               )}

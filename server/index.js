@@ -4,6 +4,10 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 dotenv.config();
 
 import { UserRouter } from './routes/user.js';
@@ -12,10 +16,24 @@ import { VisitRouter } from './routes/visits.js';
 import { PersonnelVisitRouter } from './routes/personnelVisits.js';
 import { TestCoproRouter } from './routes/testCopro.js';
 import { PersonnelCoproRouter } from './routes/personnelCopro.js';
-import { BacterialAnalysisRouter } from './routes/bacterialAnalysisRouter.js'; // Import the new router
+import { BacterialAnalysisRouter } from './routes/bacterialAnalysisRouter.js'; 
+import {planActionRoutes} from './routes/planActionRoutes.js'; 
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Get __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Ensure the uploads directory exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir);
+}
+
 
 app.use(express.json());
 app.use(cors({
@@ -31,6 +49,7 @@ app.use('/api/personnelVisits', PersonnelVisitRouter);
 app.use('/api/testCopro', TestCoproRouter);
 app.use('/api/personnelCopro', PersonnelCoproRouter);
 app.use('/api/bacterialAnalysis', BacterialAnalysisRouter);
+app.use('/api/planactions', planActionRoutes); 
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/SaharaBeach')

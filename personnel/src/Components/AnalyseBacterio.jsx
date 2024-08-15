@@ -46,17 +46,19 @@ const AnalyseBacterio = () => {
             .slice((currentPage - 1) * columnsPerPage, currentPage * columnsPerPage)
             .map((date, index) => (
                 <td key={index}>
-                    {analyses
-                        .filter(analysis => new Date(analysis.date).toLocaleDateString('default', { day: 'numeric', month: 'long', year: 'numeric' }) === date)
-                        .flatMap((analysis) =>
-                            analysis[field] && analysis[field].length > 0
-                                ? analysis[field].map((item, itemIdx) => (
-                                    <div key={itemIdx} className="record-item">
-                                        {item || ''}
-                                    </div>
-                                ))
-                                : [<div key="" className="record-item"></div>]
-                        )}
+                    <ul className="record-list">
+                        {analyses
+                            .filter(analysis => new Date(analysis.date).toLocaleDateString('default', { day: 'numeric', month: 'long', year: 'numeric' }) === date)
+                            .flatMap((analysis) =>
+                                analysis[field] && analysis[field].length > 0
+                                    ? analysis[field].map((item, itemIdx) => (
+                                        <li key={itemIdx} className="record-item">
+                                            {item || ''}
+                                        </li>
+                                    ))
+                                    : [<li key="" className="record-item"></li>]
+                            )}
+                    </ul>
                 </td>
             ));
     };
@@ -112,26 +114,24 @@ const AnalyseBacterio = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {renderRow('Alimentaire', ['alimentaire', 'surfaces', 'empreintesMains'])}
-                            {renderRow('Eau', ['eau'])}
-                            {renderRow('Légionnelles', ['legionnelles'])}
+                            {renderRow("Alimentaire", ["alimentaire", "surfaces", "empreintesMains"])}
+                            {renderRow("Eau", ["eau"])}
+                            {renderRow("Légionnelles", ["legionnelles"])}
                         </tbody>
                     </table>
                 )}
             </div>
-            {!isTableEmpty && (
-                <div className="pagination">
-                    {pageNumbers.map(number => (
-                        <span
-                            key={number}
-                            onClick={() => setCurrentPage(number)}
-                            className={`pagination-item ${currentPage === number ? 'active' : ''}`}
-                        >
-                            {number}
-                        </span>
-                    ))}
-                </div>
-            )}
+            <div className="pagination">
+                {pageNumbers.map(number => (
+                    <div
+                        key={number}
+                        onClick={() => setCurrentPage(number)}
+                        className={`pagination-item ${currentPage === number ? 'active' : ''}`}
+                    >
+                        {number}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

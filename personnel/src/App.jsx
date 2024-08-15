@@ -16,6 +16,9 @@ import Layout from './Components/Layout';
 import Logout from './Components/Logout'; 
 import AnalyseBacterio from './Components/AnalyseBacterio';
 import BacterialAnalysisForm from './Components/BacterialAnalysisForm';
+import NonConformite from './Components/NonConformite';
+import PlanAction from './Components/PlanAction';
+import AddPlanForm from './Components/AddPlanForm';   
 import { UserProvider } from './context/UserContext';
 
 function App() {
@@ -39,6 +42,9 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path = "/AnalyseBacterio" element={<Layout>< AnalyseBacterio/> </Layout>} />
           <Route path = "/AjoutAnalyseBacterio" element={<Layout>< BacterialAnalysisForm/></Layout>}/>
+          <Route path = "/NonConformite" element={<Layout>< NonConformite/></Layout>}/>
+          <Route path ="/PlanAction" element={<Layout>< PlanAction/></Layout>} />
+          <Route path="/add-plan" element={<Layout><AddPlanForm /></Layout>} /> {/* Add this line for the AddPlanForm route */}
         </Routes>
       </BrowserRouter>
     </UserProvider>

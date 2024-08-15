@@ -1,0 +1,66 @@
+/* Global styles for full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    width: 100%;
+}
+
+.page-container {
+    border-radius: 8px; /* Ajustement du rayon pour le carré */
+    width: 100%;
+    max-width: 500px; /* Largeur maximale du conteneur */
+    background-color: #fff; /* Couleur de fond du conteneur */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.plan-action-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-action-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Couleur du titre */
+}
+
+.plan-action-container label {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments enfants */
+}
+
+.plan-action-container input,
+.plan-action-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #5b9dd3; /* Couleur de bordure */
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur totale */
+}
+
+.plan-action-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5b9dd3;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.plan-action-container button:hover {
+    background-color: #0056b3;
+}
